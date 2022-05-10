@@ -8,16 +8,6 @@
         "read": ".env,.env.defaults",
         "net": "localhost:5432"
       }
-    },
-    "nessie:install": {
-      "cmd": "deno install -f https://deno.land/x/nessie/cli.ts",
-      "watch": false,
-      "unstable": true,
-      "allow": {
-        "read": ".",
-        "write": "nessie.config.ts,db",
-        "net": "localhost:5432"
-      }
     }
   }
 }

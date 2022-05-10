@@ -1,4 +1,7 @@
 {
+  "tasks": {
+    "nessie": "deno run -A --unstable https://deno.land/x/nessie/cli.ts"
+  },
   "compilerOptions": {
     "strict": true,
     "allowJs": true
