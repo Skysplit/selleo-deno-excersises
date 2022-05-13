@@ -12,17 +12,17 @@ app.get("/todoitems/:id", async (req) => {
   return await TodoItem.find(id);
 });
 
-app.get("/todoitems/", async (req) => {
+app.get("/todoitems", async (req) => {
   return await TodoItem.all();
 });
 
-app.post("/todoitems/create", async (req) => {
+app.post("/todoitems", async (req) => {
   const { title, content, checked } = (await req.body) as ToDoItemDTO;
   return await TodoItem.create({ title, content, checked });
 });
 
-app.post("/todoitems/update", async (req) => {});
+app.put("/todoitems", async (req) => {});
 
-app.post("/todoitems/delete", async (req) => {});
+app.delete("/todoitems", async (req) => {});
 
 app.start({ port: 8080 });
