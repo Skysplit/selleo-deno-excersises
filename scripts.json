@@ -8,6 +8,14 @@
         "read": ".env,.env.defaults",
         "net": true
       }
+    },
+    "test": {
+      "cmd": "deno test",
+      "allow": {
+        "env": true,
+        "read": ".env.test,.env.defaults",
+        "net": true
+      }
     }
   }
 }
