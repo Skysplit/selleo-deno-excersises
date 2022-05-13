@@ -16,6 +16,13 @@ app.post("/todos", async function (req, res) {
   res.json(response)
 });
 
+app.put("/todos/:id", async function (req, res) {
+  const todoId = req.params.id
+  await TodoItem.where('id', todoId).update(req.body);
+  const response = await TodoItem.find(todoId)
+  res.json(response)
+})
+
 app.listen(
   3000,
   () => console.log("server has started on http://localhost:3000 🚀"),
