@@ -1,0 +1,63 @@
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.done {
+  color: green;
+  text-decoration: none;
+}
+
+.todo {
+  color: red;
+  text-decoration: none;
+}
+
+</style>
+</head>
+<body>
+
+  <h2>TODO List</h2>
+  <table>
+    <% items.forEach(function(item){ %>
+      <tr> 
+        <td> 
+          <%- item.title %>  </td> 
+        <td>
+           <%- item.content %>  
+        </td> 
+        <td>
+           <% if (item.checked) { %>
+        <a class="done" href="/todolist/<%- item.id %>/toggle"> DONE</a>
+      <% } else { %> 
+        <a class="todo" href="/todolist/<%- item.id %>/toggle"> TODO</a>
+      <% } %>
+    </td> </tr> 
+    <% }); %>
+  </table>
+  <br />
+  <form action="/todolist" method="post">
+    <label for="title">Title</label><br>
+    <input type="text" id="title" name="title"><br>
+    <label for="content">Content</label><br>
+    <input type="text" id="content" name="content"><br><br>
+    <input type="submit" value="Submit">
+  </form> 
+</body>
+</html>
+
+

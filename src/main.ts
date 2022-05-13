@@ -15,10 +15,9 @@ app.renderer = {
 console.log("http://localhost:8080/");
 
 app.get("/todolist", async (context) => {
-  return (await TodoItem.all()) as unknown as ToDoItemDTO[];
-  // const items =  await TodoItem.all() as unknown as ToDoItemDTO[];
-  // console.log({items})
-  // await context.render("src/items.html", {items: items})
+  const items =  await TodoItem.orderBy('id').all() as unknown as ToDoItemDTO[];
+  console.log({items})
+  await context.render("src/items.html", {items: items})
 });
 
 app.get("/todolist/:id", async (context) => {
@@ -28,20 +27,23 @@ app.get("/todolist/:id", async (context) => {
 
 app.post("/todolist", async (context) => {
   const { title, content, checked } = (await context.body) as ToDoItemDTO;
-  return await TodoItem.create({ title, content, checked });
+   await TodoItem.create({ title, content, checked });
+   context.redirect("/todolist");
 });
 
-app.post("/todolist/:id/toggle", async (context) => {
+app.get("/todolist/:id/toggle", async (context) => {
   const { id } = context.params;
   const item = await TodoItem.find(id);
   item.checked = !item.checked;
-  return await item.update();
+  await item.update();
+  context.redirect("/todolist");
 });
 
 app.delete("/todolist/:id", async (context) => {
   const { id } = context.params;
   const item = await TodoItem.find(id);
-  return await item.delete();
+   await item.delete();
+   context.redirect("/todolist");
 });
 
 app.start({ port: 8080 });
