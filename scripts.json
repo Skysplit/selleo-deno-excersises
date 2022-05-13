@@ -5,8 +5,8 @@
       "cmd": "deno run src/main.ts",
       "allow": {
         "env": true,
-        "read": ".env,.env.defaults",
-        "net": "localhost:5432"
+        "read": ".env,.env.defaults,.",
+        "net": true
       }
     }
   }

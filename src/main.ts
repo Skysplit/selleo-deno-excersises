@@ -1,17 +1,19 @@
 import "./db/db.ts";
-// import { TodoItem } from "/db/models/TodoItem.ts";
-
-// console.log("running");
-
-// const item = await TodoItem.create({ title: "test", content: "test content" });
-
-// console.log({ item });
-import { opine } from '/deps.ts'
+import { TodoItem } from "/db/models/TodoItem.ts";
+import { opine, json } from '/deps.ts'
 
 const app = opine();
 
-app.get("/", function (_, res) {
-  res.send("Hello World");
+app.use(json());
+
+app.get("/todos", async function (_, res) {
+  const todos = await TodoItem.all()
+  res.json(todos)
+});
+
+app.post("/todos", async function (req, res) {
+  const response = await TodoItem.create(req.body)
+  res.json(response)
 });
 
 app.listen(
