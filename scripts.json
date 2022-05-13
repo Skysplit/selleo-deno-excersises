@@ -5,9 +5,25 @@
       "cmd": "deno run src/main.ts",
       "allow": {
         "env": true,
-        "read": ".env,.env.defaults",
-        "net": "localhost:5432"
+        "read": true,
+        "net": true
       }
     }
+  },
+  "watcher": {
+    "match": [
+      "**/src/*.*"
+    ],
+    "exts": [
+      "js",
+      "jsx",
+      "ts",
+      "tsx",
+      "json"
+    ],
+    "skip": [
+      "*/.git/*",
+      "*/.docker/*"
+    ]
   }
 }
