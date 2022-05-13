@@ -32,7 +32,21 @@ tr:nth-child(even) {
 <body>
 
   <h2>TODO List</h2>
+  <h4>Filters:</h4>
+  <ul>
+    <li>
+      <a href="/todolist?done=false">Only todo</a>
+    </li>
+    <li>
+      <a href="/todolist?done=true">Only done</a>
+    </li>
+    <li>
+      <a href="/todolist">All</a>
+    </li>
+  </ul>
+ 
   <table>
+    <tr><th>Name</th> <th>Content</th><th>Status</th></tr>
     <% items.forEach(function(item){ %>
       <tr> 
         <td> 

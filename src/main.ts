@@ -15,8 +15,13 @@ app.renderer = {
 console.log("http://localhost:8080/");
 
 app.get("/todolist", async (context) => {
-  const items =  await TodoItem.orderBy('id').all() as unknown as ToDoItemDTO[];
-  console.log({items})
+  const {done} = context.queryParams
+  let items
+  if(done !== undefined && (done === 'true' || done === 'fasle') )   {
+    items =  await TodoItem.orderBy('id').where('checked', '=', done).all() as unknown as ToDoItemDTO[];
+  } else {
+    items =  await TodoItem.orderBy('id').all() as unknown as ToDoItemDTO[];
+  }
   await context.render("src/items.html", {items: items})
 });
 
