@@ -6,8 +6,11 @@
       "allow": {
         "env": true,
         "read": ".env,.env.defaults",
-        "net": "localhost:5432"
+        "net": "localhost:5432,0.0.0.0:8000"
       }
     }
   }
 }
+
+
+
