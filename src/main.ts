@@ -12,6 +12,10 @@ app.get("/todoitems/:id", async (req) => {
   return await TodoItem.find(id);
 });
 
+app.get("/todoitems/", async (req) => {
+  return await TodoItem.all();
+});
+
 app.post("/todoitems/create", async (req) => {
   const { title, content, checked } = (await req.body) as ToDoItemDTO;
   return await TodoItem.create({ title, content, checked });
