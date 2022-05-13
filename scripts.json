@@ -8,6 +8,14 @@
         "read": ".env,.env.defaults",
         "net": "localhost:5432,localhost:3000"
       }
+    },
+    "test": {
+      "cmd": "deno test",
+      "allow": {
+        "env": true,
+        "net": true,
+        "read": ".env.test,.env.defaults"
+      }
     }
   }
 }

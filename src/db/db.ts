@@ -3,7 +3,7 @@ import { TodoItem } from "./models/TodoItem.ts";
 
 const connector = new PostgresConnector({
   host: "localhost",
-  port: 5432,
+  port: +(Deno.env.get("POSTGRES_PORT") ?? 5432),
   database: Deno.env.get("POSTGRES_DB")!,
   username: Deno.env.get("POSTGRES_USER")!,
   password: Deno.env.get("POSTGRES_PASSWORD")!,

@@ -1,4 +1,4 @@
-import "https://deno.land/x/dotenv@v3.2.0/load.ts";
+export { configAsync, config } from "https://deno.land/x/dotenv/mod.ts";
 export * as pogo from "https://deno.land/x/pogo@v0.5.2/main.ts";
 export {
   Model,

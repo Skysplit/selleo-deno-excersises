@@ -1,8 +1,9 @@
+import "https://deno.land/x/dotenv@v3.2.0/load.ts";
+
 import {
   ClientPostgreSQL,
   NessieConfig,
 } from "https://deno.land/x/nessie@2.0.5/mod.ts";
-import "https://deno.land/x/dotenv@v3.2.0/load.ts";
 
 const client = new ClientPostgreSQL({
   hostname: "localhost",
