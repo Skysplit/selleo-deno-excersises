@@ -1,6 +1,11 @@
 import { Model, DataTypes } from "/deps.ts";
 
 export class TodoItem extends Model {
+  id!: number;
+  checked!: boolean;
+  title!: string;
+  content!: string;
+
   static table = "todo_items";
 
   static fields = {

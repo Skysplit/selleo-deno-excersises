@@ -1,8 +1,9 @@
-import "./db/db.ts";
-import { TodoItem } from "/db/models/TodoItem.ts";
+import "/load_env.ts";
+import "/db/db.ts";
+import "/routers/todos.router.ts";
+import { app } from "/app.ts";
 
-console.log("running");
+console.log("App starting");
+console.log(`http://${app.options.hostname}:${app.options.port}`);
 
-const item = await TodoItem.create({ title: "test", content: "test content" });
-
-console.log({ item });
+await app.start();
