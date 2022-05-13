@@ -7,4 +7,10 @@ services:
     volumes:
       - ./.docker/db:/var/lib/postgresql/data
     ports:
-      - 5432:5432
+      - 9999:5432
+  db-test:
+    image: postgres:alpine
+    env_file:
+      - .env
+    ports:
+      - 9998:5432
