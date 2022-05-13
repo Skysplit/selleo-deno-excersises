@@ -2,7 +2,7 @@ import "./db/db.ts";
 import { TodoItem } from "/db/models/TodoItem.ts";
 import { opine, json } from "/deps.ts";
 
-const app = opine();
+export const app = opine();
 
 app.use(json());
 
@@ -28,8 +28,3 @@ app.delete("/todos/:id", async function (req, res) {
   await TodoItem.deleteById(req.params.id);
   res.send(todo);
 });
-
-app.listen(
-  3000,
-  () => console.log("server has started on http://localhost:3000 🚀"),
-);
