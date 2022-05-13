@@ -15,7 +15,7 @@ export const initDb = async () => {
 
   console.log("linked");
 
-  await db.sync({ drop: true });
+  await db.sync({ drop: false });
 };
 
 export default initDb;
