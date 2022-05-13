@@ -25,6 +25,20 @@ describe("/todos", () => {
       });
   })
 
+  it('POST /todos', async () => {
+    const todoItem = {
+      title: 'Test title',
+      content: 'Test content'
+    }
+
+    await superdeno(app)
+      .post("/todos")
+      .send(todoItem)
+      .expect((res) => {
+        assertObjectMatch(res.body, { ...todoItem, checked: false })
+      });
+  })
+
   it('PUT /todos:id', async () => {
     const createdTodoItem = await TodoItem.create({
       title: 'Test title',
@@ -51,5 +65,22 @@ describe("/todos", () => {
       assertEquals(updatedTodoItem.content, createdTodoItem.content)
       assertEquals(updatedTodoItem.checked, updateFields.checked)
 
+    })
+
+  it('DELETE /todos/:id', async () => {
+    const todoItem = {
+      title: 'Test title',
+      content: 'Test content'
+    }
+    const createdTodoItem = await TodoItem.create(todoItem);
+
+    await superdeno(app)
+      .delete(`/todos/${createdTodoItem.id}`)
+      .expect((res) => {
+        assertObjectMatch(res.body, todoItem)
+      });
+
+    const deletedTodoItem = await TodoItem.find((createdTodoItem as any).id)
+    assertEquals(deletedTodoItem, undefined)
   })
 });
