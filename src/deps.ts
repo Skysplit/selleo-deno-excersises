@@ -1,5 +1,6 @@
 import "https://deno.land/x/dotenv@v3.2.0/load.ts";
 export { opine, json } from "https://deno.land/x/opine@2.2.0/mod.ts";
+export { Router } from "https://deno.land/x/opine@2.2.0/mod.ts";
 export {
   Model,
   DataTypes,
