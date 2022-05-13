@@ -6,8 +6,13 @@
       "allow": {
         "env": true,
         "read": ".env,.env.defaults",
-        "net": "localhost:5432"
+        "net": true
       }
     }
+  },
+  "watcher": {
+    "match": ["**/src/*.*"],
+    "exts": ["js", "jsx", "ts", "tsx", "json"],
+    "skip": ["*/.git/*", "*/.docker/*"]
   }
 }

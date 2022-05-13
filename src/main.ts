@@ -1,8 +1,11 @@
-import "./db/db.ts";
-import { TodoItem } from "/db/models/TodoItem.ts";
+import { Application } from "https://deno.land/x/abc@v1.3.3/mod.ts";
 
-console.log("running");
+const app = new Application();
 
-const item = await TodoItem.create({ title: "test", content: "test content" });
+console.log("http://localhost:8080/");
 
-console.log({ item });
+app
+  .get("/hello", (c) => {
+    return "Hello, Abc!";
+  })
+  .start({ port: 8080 });
