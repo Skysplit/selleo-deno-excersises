@@ -1,7 +1,7 @@
-import { Model, DataTypes } from "/deps.ts";
+import { DataTypes, Model } from '/deps.ts';
 
 export class TodoItem extends Model {
-  static table = "todo_items";
+  static table = 'todo_items';
 
   static fields = {
     id: {

@@ -6,7 +6,15 @@
       "allow": {
         "env": true,
         "read": ".env,.env.defaults",
-        "net": "localhost:5432"
+        "net": true
+      }
+    },
+    "test": {
+      "cmd": "deno test",
+      "allow": {
+        "env": true,
+        "read": ".env.test,.env.defaults",
+        "net": true
       }
     }
   }
