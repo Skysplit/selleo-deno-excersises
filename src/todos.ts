@@ -3,8 +3,9 @@ import { Router } from '/deps.ts'
 
 const api = Router();
 
-api.get("/", async function (_, res) {
-  const todos = await TodoItem.all();
+api.get("/", async function (req, res) {
+  const { query }  = req
+  const todos = await TodoItem.where(query).get();
   res.json(todos);
 });
 
