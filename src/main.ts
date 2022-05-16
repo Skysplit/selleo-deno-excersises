@@ -1,8 +1,9 @@
-import "./db/db.ts";
-import { TodoItem } from "/db/models/TodoItem.ts";
+import { App } from "https://deno.land/x/alosaur@v0.34.0/mod.ts";
+import { TodoListArea } from "./areas/todo-list/todo-list.area.ts";
 
-console.log("running");
+const app = new App({
+  areas: [TodoListArea],
+  logging: false,
+});
 
-const item = await TodoItem.create({ title: "test", content: "test content" });
-
-console.log({ item });
+app.listen();

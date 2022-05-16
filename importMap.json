@@ -1,6 +1,7 @@
 {
   "imports": {
     "/": "./src/",
-    "./": "./"
+    "./": "./",
+    "alosaur/": "https://deno.land/x/alosaur@v0.34.0/"
   }
 }
