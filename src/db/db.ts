@@ -13,4 +13,4 @@ export const db = new Database(connector);
 
 db.link([TodoItem]);
 
-await db.sync({ drop: true });
+await db.sync({ drop: false, truncate: true });

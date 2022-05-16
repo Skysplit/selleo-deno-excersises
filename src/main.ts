@@ -1,8 +1,8 @@
 import "./db/db.ts";
-import { TodoItem } from "/db/models/TodoItem.ts";
+import { opine, json } from "/deps.ts";
+import todosApi from './todos.ts'
 
-console.log("running");
+export const app = opine();
 
-const item = await TodoItem.create({ title: "test", content: "test content" });
-
-console.log({ item });
+app.use(json());
+app.use('/todos', todosApi)

@@ -1,6 +1,7 @@
 {
   "tasks": {
-    "nessie": "deno run -A --unstable https://deno.land/x/nessie@2.0.5/cli.ts"
+    "nessie": "deno run -A --unstable https://deno.land/x/nessie@2.0.5/cli.ts",
+    "test": "deno test -A"
   },
   "compilerOptions": {
     "strict": true,
